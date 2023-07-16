@@ -10,7 +10,9 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpSession;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.Optional;
 
@@ -37,10 +39,10 @@ public class IndexController {
     @Operation(summary = "로그인", description = "로그인 API", responses = {
             @ApiResponse(responseCode = "200", description = "로그인 성공")
     })
-    public JsonResponse login(HttpServletRequest request, @RequestBody LoginRequest json) {
+    public LoginResponse login(HttpServletRequest request, @RequestBody LoginRequest json) {
         /* 로그인 상태 확인 */
         if (request.getSession(false) != null) {
-            return new JsonResponse("fail", "이미 로그인 되어 있습니다.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "이미 로그인 되어 있습니다.");
         }
 
         /* json 데이터로 유저 정보 확인 */
@@ -52,7 +54,7 @@ public class IndexController {
 
         /* 아이디와 패스워드 확인 */
         if (loginUser == null || !loginUser.getPassword().equals(password)) {
-            return new JsonResponse("fail", "아이디 또는 패스워드가 틀렸습니다.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "아이디 또는 패스워드가 틀렸습니다.");
         }
 
         /* 로그인 성공 처리 신규 세션을 생성 */
@@ -68,12 +70,13 @@ public class IndexController {
     @Operation(summary = "로그아웃", description = "로그아웃 API", responses = {
             @ApiResponse(responseCode = "200", description = "로그아웃 성공")
     })
-    public JsonResponse logout(HttpServletRequest request) {
+    public LoginResponse logout(HttpServletRequest request) {
         HttpSession session = request.getSession(false);
         if (session == null) {
-            return new JsonResponse("fail", "로그인 되어 있지 않습니다.");
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "로그인 되어 있지 않습니다.");
         }
+        User loginUser = (User) session.getAttribute("loginUser");
         session.invalidate();
-        return new JsonResponse("success", "로그아웃 성공");
+        return new LoginResponse("success", "로그아웃 성공", loginUser);
     }
 }

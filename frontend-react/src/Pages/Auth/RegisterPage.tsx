@@ -26,6 +26,7 @@ const RegisterPage = () => {
 
   const onSubmit = (data: Member) => {
     mutation.mutate(data);
+    
     console.log('Member:', data);
     reset();
   };

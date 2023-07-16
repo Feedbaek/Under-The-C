@@ -31,6 +31,22 @@
       "lecture": "창의입문설계",
       "rating": 5,
       "content": "content example........................"
+    },
+    {
+      "title": "개발은 힘들어유",
+      "rating": "5",
+      "lecture": "타입스크립트",
+      "professor": "김김김",
+      "content": "아니 난 힘들지않아",
+      "id": 5
+    },
+    {
+      "title": "아니",
+      "rating": 2,
+      "lecture": "왜",
+      "professor": "갑자기",
+      "content": " 안되냐고ㅇㅇ",
+      "id": 6
     }
   ],
   "comments": [
