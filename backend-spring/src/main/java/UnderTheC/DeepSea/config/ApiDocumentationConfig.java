@@ -16,7 +16,7 @@ public class ApiDocumentationConfig {
                 .info(new Info()
                         .title("Under The C API")
                         .description("방학과제 API 입니다. 문의는 카톡이나 슬랙으로 연락주세요.")
-                        .version("0.0.1")
+                        .version("0.2.0")
                         .contact(new Contact()
                                 .name("김민석")
                                 .email("nicek789@gmail.com")));

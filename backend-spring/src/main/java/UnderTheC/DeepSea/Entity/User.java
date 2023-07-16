@@ -9,14 +9,11 @@ import lombok.Setter;
 @Getter
 @Setter
 public class User {
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long uid;
-
     @Id
     @Column(length = 15)
-    private String ID;
+    private String id;
     @Column(length = 20)
-    private String passwd;
+    private String password;
     @Column(length = 20)
     private String email;
 }

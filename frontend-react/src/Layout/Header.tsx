@@ -1,82 +1,43 @@
-const Header = () => {
-    return (
-        <div className="max-w-2xl mx-auto">
-      <nav className="border-gray-200 px-2 mb-10">
-        <div className="container mx-auto flex flex-wrap justify-between">
-          <a href="/" className="flex">
-            <svg
-              className="h-10 mr-3"
-              width="51"
-              height="70"
-              viewBox="0 0 51 70"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-            </svg>
-            <span className="self-center text-lg font-semibold whitespace-nowrap">
-                Under-The-C
-            </span>
-          </a>
-          <div className="flex md:order-2">
-            <div className="relative mr-3 md:mr-0 hidden md:block">
-              {/* Search input */}
-              <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                <svg
-                  className="w-5 h-5 text-gray-500"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                </svg>
-              </div>
-              <input
-                type="text"
-                id="email-adress-icon"
-                className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2"
-                placeholder="Search..."
-              />
-            </div>
-          </div>
-          <div className="hidden md:flex justify-between items-center w-full md:w-auto md:order-1" id="mobile-menu-3">
-            <ul className="flex-col md:flex-row flex md:space-x-8 mt-4 md:mt-0 md:text-sm md:font-medium">
-              <li>
-                <a
-                  href="/Board"
-                  className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0"
-                >
-                  Main
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/Board"
-                  className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0"
-                >
-                  강의 평가
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/Board"
-                  className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0"
-                >
-                  회원 가입
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/Board"
-                  className="text-gray-700 hover:bg-gray-50 border-b border-gray-100 md:hover:bg-transparent md:border-0 block pl-3 pr-4 py-2 md:hover:text-blue-700 md:p-0"
-                >
-                  로그인
-                </a>
-              </li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </div>
-    );
-};
-  
-  export default Header;
+import React from 'react';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import 'bootstrap/dist/css/bootstrap.css';
+
+function Header() {
+  return (
+    <Navbar expand="lg" className="bg-body-tertiary">
+      <Container>
+        <Navbar.Brand href="/">Under-The-C</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link href="/">메인 페이지</Nav.Link>
+            <Nav.Link href="/Board">강의평가</Nav.Link>
+          </Nav>
+          <Nav className="ms-auto">
+          <Form className="d-flex">
+            <Form.Control
+              type="search"
+              placeholder="Search"
+              className="me-2"
+              aria-label="Search"
+            />
+            <Button variant="light" size="sm">Search</Button>
+          </Form>
+            <Button variant="light" size="sm" href="/RegisterPage">
+              회원가입
+            </Button>
+            <Button variant="light" size="sm" href="/LoginPage">
+              로그인
+            </Button>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
+}
+
+export default Header;
