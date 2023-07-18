@@ -27,7 +27,9 @@ const RegisterPage = () => {
   });
 
   const onSubmit = handleSubmit((data: Member) => {
+    
     mutation.mutate(data);
+    
     console.log('Member:', data);
   });
 
@@ -49,6 +51,7 @@ const RegisterPage = () => {
                       <label htmlFor="id" className="block mb-2 text-sm font-medium text-gray-900">아이디</label>
                       <input 
                       type="id"
+                      value="id"
                       {...register("id",{required: '아이디을 입력하세요'})}
                       className="bg-gray-50 border border-gray-300 text-gray-900 sm:text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
                       />

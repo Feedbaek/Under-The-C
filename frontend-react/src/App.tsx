@@ -7,6 +7,7 @@ import RegisterPage from './Pages/Auth/RegisterPage';
 import Header from './Layout/Header';
 import Footer from './Layout/Footer';
 import Main from './Pages/Main/Main';
+//import Search from "./Pages/Search/Search";
 import UserPage from './Pages/User/UserPage';
 
 const App = () => {
