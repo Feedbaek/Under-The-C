@@ -1,7 +1,6 @@
 package UnderTheC.DeepSea.controller;
 
 import UnderTheC.DeepSea.Entity.User;
-import UnderTheC.DeepSea.dto.JsonResponse;
 import UnderTheC.DeepSea.dto.LoginRequest;
 import UnderTheC.DeepSea.dto.LoginResponse;
 import UnderTheC.DeepSea.repository.UserRepository;
@@ -71,11 +70,14 @@ public class IndexController {
             @ApiResponse(responseCode = "200", description = "로그아웃 성공")
     })
     public LoginResponse logout(HttpServletRequest request) {
+        /* 로그인 상태 확인 */
         HttpSession session = request.getSession(false);
         if (session == null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "로그인 되어 있지 않습니다.");
         }
         User loginUser = (User) session.getAttribute("loginUser");
+
+        /* 세션 제거해서 로그아웃 */
         session.invalidate();
         return new LoginResponse("success", "로그아웃 성공", loginUser);
     }

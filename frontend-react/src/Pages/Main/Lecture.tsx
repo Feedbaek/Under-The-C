@@ -6,13 +6,13 @@ export const Lecture = (props: ILecture) => {
 		<div className="md:flex">
 			<div className="p-8">
 				<div className="uppercase tracking-wide text-sm text-indigo-500 font-semibold">
-					{props.lecture}
+					{props.lectureName}
 				</div>
 					<a href="#" className="block mt-1 text-lg leading-tight font-medium text-black hover:underline">
-						{props.title}
+						{props.evaluationTitle}
 					</a>
 					<p className="mt-2 text-slate-500">
-						{props.content}
+						{props.evaluationContent}
 					</p>
 			</div>
 		</div>

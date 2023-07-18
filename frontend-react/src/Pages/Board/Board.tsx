@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import { useMutation } from '@tanstack/react-query';
+import { useMutation } from 'react-query';
 import { useForm } from 'react-hook-form';
 import { ILecture } from '../../Atoms/Lecture';
 import { lectorePost } from './api';
@@ -29,58 +29,58 @@ const Board = () => {
         <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid grid-cols-2 gap-4">
             <div>
-              <label htmlFor="title" className="block mb-2 text-sm font-medium text-gray-900">
+              <label htmlFor="evaluationTitle" className="block mb-2 text-sm font-medium text-gray-900">
                 제목
               </label>
               <input
                 type="text"
-                id="title"
-                {...register('title', { required: '제목을 입력하세요' })}
+                id="evaluationTitle"
+                {...register('evaluationTitle', { required: '제목을 입력하세요' })}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3"
               />
             </div>
             <div>
-              <label htmlFor="rating" className="block mb-2 text-sm font-medium text-gray-900">
+              <label htmlFor="totalScore" className="block mb-2 text-sm font-medium text-gray-900">
                 별점
               </label>
               <input
                 type="number"
-                id="rating"
+                id="totalScore"
                 placeholder="1~5 입력"
-                {...register('rating', {min:1 , max:5 })}
+                {...register('totalScore', {min:1 , max:5 })}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3"
               />
             </div>
             <div>
-              <label htmlFor="lecture" className="block mb-2 text-sm font-medium text-gray-900">
+              <label htmlFor="lectureName" className="block mb-2 text-sm font-medium text-gray-900">
                 강의명
               </label>
               <input
                 type="text"
-                id="lecture"
-                {...register('lecture', { required: '강의명을 입력하세요' })}
+                id="lectureName"
+                {...register('lectureName', { required: '강의명을 입력하세요' })}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3"
               />
             </div>
             <div>
-              <label htmlFor="processor" className="block mb-2 text-sm font-medium text-gray-900">
+              <label htmlFor="professorName" className="block mb-2 text-sm font-medium text-gray-900">
                 교수명
               </label>
               <input
                 type="text"
-                id="professor"
-                {...register("professor", { required: '강의명을 입력하세요' })}
+                id="professorName"
+                {...register("professorName", { required: '강의명을 입력하세요' })}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3"
               />
             </div>
           </div>
           <br />
           <div>
-            <label htmlFor="content" className="block mb-2 text-sm font-medium text-gray-900">
+            <label htmlFor='evaluationContent' className="block mb-2 text-sm font-medium text-gray-900">
               강의 설명
             </label>
             <textarea
-              {...register('content', { minLength:{
+              {...register('evaluationContent', { minLength:{
                 value: 6,
                 message: '6글자 이상 입력해주세요',
               },  

@@ -1,12 +1,22 @@
 import { atom } from 'recoil';
 
 export interface ILecture {
-	id: number;
-	title: string;
-	content: string;
-	professor: string;
-	lecture: string;
-	rating: number;
+	evaluationID: number,
+    userID: string,
+    lectureName: string,
+    professorName: string,
+    lectureYear: number,
+    semesterDivide: string,
+    lectureDivide: string,
+    evaluationTitle: string,
+    evaluationContent: string,
+    totalScore: string,
+    creditScore: string,
+    comfortableScore: string,
+    lectureScore: string,
+    likeCount: number,
+    created: string,
+    updated: string,
 }
 
 export const lectureListState = atom<ILecture []>({

@@ -14,10 +14,10 @@ public class Evaluation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(length = 20)
-    private int evaluationID;
+    private int evaluationId;
 
     @Column(length = 50)
-    private String userID;
+    private String userId;
     @Column(length = 50)
     private String lectureName;
     @Column(length = 50)

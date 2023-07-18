@@ -11,11 +11,11 @@ import java.util.Date;
 public class Recommendation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    int recID;
+    int recId;
     @Column(length = 20)
-    String userID ;
+    String userId ;
     @Column(length = 20)
-    int evaluationID;
+    int evaluationId;
     @Temporal(TemporalType.TIMESTAMP)
     private Date created;
     @Temporal(TemporalType.TIMESTAMP)
