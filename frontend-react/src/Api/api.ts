@@ -11,6 +11,6 @@ export const fetchLogin = async (id: string, password: string) => {
 	const res = await axios.post(URI + '/login', {
 		id: id,
 		password: password,
-	});
+	}, {withCredentials: true});
 	return res.data;
 }
