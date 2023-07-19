@@ -34,7 +34,7 @@ const RegisterPage = () => {
 
   return (
     <>
-      <section className="bg-gray-50 dark:bg-gray-900">
+      <section className="bg-gray-50">
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
       <a href="/" className="flex items-center no-underline mb-6 text-2xl font-semibold text-gray-900">
           Under-The-C   
@@ -54,7 +54,7 @@ const RegisterPage = () => {
                       />
                   </div>
                   <div>
-                      <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 dark:text-white">이메일</label>
+                      <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-900 ">이메일</label>
                       <input 
                       type="email"
                       {...register("email",{required: '이메일을 입력하세요'})}
