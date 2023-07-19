@@ -1,3 +1,4 @@
+import { memo, useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { LoginState, isLoginState } from "../../Atoms/Login";
 import { useRecoilState } from "recoil";
@@ -5,28 +6,33 @@ import { fetchLogin } from "../../Api/api";
 import { useMutation } from "react-query";
 import { useState } from "react";
 
-
 const LoginPage = () => {
-	const [id, setId] = useState("");
-	const [password, setPassword] = useState("");
+	const navigate = useNavigate();
+
+	const id = useRef("");
+	const password = useRef("");
 	const [, setLoginState] = useRecoilState(LoginState);
 	const [, setIsLoginState] = useRecoilState(isLoginState);
- 	const navigate = useNavigate();
 
-	const loginMutation = useMutation(() => fetchLogin(id, password), {
+	const loginMutation = useMutation(() => fetchLogin(id.current, password.current), {
 		 onSuccess: () => {
-			setLoginState({ id: id, password: password });
+			setLoginState({ id: id.current, password: password.current });
 			setIsLoginState(true);
 			navigate('/');
 		},
 		onError: () => {
 			alert("로그인에 실패했습니다.");
 			setIsLoginState(false);
-			setId('');
-			setPassword('');
+			id.current = "";
+			password.current = "";
 		}
 	});
 	
+	const handleChange = (e: any, ref: any) => {
+		const value = e.target.value;
+		ref.current = value;
+	}
+
 	const onSubmit = (e: any) => {
 		e.preventDefault();
 		// 전처리
@@ -46,18 +52,14 @@ const LoginPage = () => {
 					<form onSubmit={onSubmit} className="space-y-4 md:space-y-6">
 						<h2 className="text-center text-slate-500">Login</h2>
 						<input type='text' 
-								id='id'
-								value={id} 
-								onChange={ (e) => setId(e.target.value) } 
+								onChange={(e) => handleChange(e, id)}
 								className="bg-gray-50 border border-gray-300 text-gray-900
 											sm:text-sm rounded-lg focus:ring-primary-600 
 											focus:border-primary-600 block w-full p-2.5"
 											placeholder="id"
 						/>
 						<input type='password'
-								id='password'
-								value={password}
-								onChange={ (e) => setPassword(e.target.value) }
+							   onChange={(e) => handleChange(e, password)}
 								className="bg-gray-50 border border-gray-300 text-gray-900
 								sm:text-sm rounded-lg focus:ring-primary-600 
 								focus:border-primary-600 block w-full p-2.5"
@@ -84,4 +86,4 @@ const LoginPage = () => {
     );
 };
 
-export default LoginPage;
+export default memo(LoginPage);

@@ -19,7 +19,7 @@ public class DeepSeaApplication {
 			@Override
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
-				.allowedOrigins("http://localhost:" + System.getenv("REACT_PORT"))
+				.allowedOrigins("http://" + System.getenv("REACT_HOST") + ":" + System.getenv("REACT_PORT"))
 				.allowedMethods("*");
 			}
 		};

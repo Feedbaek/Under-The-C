@@ -9,7 +9,6 @@ const Main = () => {
 	const [ lectureList, setLectureList ] = useRecoilState(lectureListState);
 	const { isLoading, isError, data } = useQuery(['lecture'], fetchPost, {
 			onSuccess: (data) => setLectureList(data),
-			onError: (error) => console.log(error),
 			//기본 캐시 타임 == 5min
 		});
 		if (isLoading)
