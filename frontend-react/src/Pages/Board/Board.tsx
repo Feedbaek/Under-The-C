@@ -34,7 +34,6 @@ const Board = () => {
               </label>
               <input
                 type="text"
-                id="evaluationTitle"
                 {...register('evaluationTitle', { required: '제목을 입력하세요' })}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3"
               />
@@ -45,7 +44,6 @@ const Board = () => {
               </label>
               <input
                 type="number"
-                id="totalScore"
                 placeholder="1~5 입력"
                 {...register('totalScore', {min:1 , max:5 })}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3"
@@ -57,7 +55,6 @@ const Board = () => {
               </label>
               <input
                 type="text"
-                id="lectureName"
                 {...register('lectureName', { required: '강의명을 입력하세요' })}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3"
               />
@@ -68,7 +65,6 @@ const Board = () => {
               </label>
               <input
                 type="text"
-                id="professorName"
                 {...register("professorName", { required: '강의명을 입력하세요' })}
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-base rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-3"
               />

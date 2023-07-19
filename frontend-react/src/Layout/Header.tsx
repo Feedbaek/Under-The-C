@@ -35,7 +35,7 @@ const Header = () => {
                 className="me-2"
                 aria-label="Search"
               />
-              <Button variant="light" size="sm" href="/">
+              <Button variant="light" size="sm" href="/Search">
                 Search
               </Button>
             </Form>
