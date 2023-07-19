@@ -5,6 +5,6 @@ const URI = `http://${process.env.REACT_APP_SPRING_HOST}:${process.env.REACT_APP
 
 export const lectorePost = async (data: any) => {
     data.rating = parseInt(data.rating);
-    const res = await axios.post(URI, data);
+    const res = await axios.post(URI, data, {withCredentials: true});
     return res.data;
   };
