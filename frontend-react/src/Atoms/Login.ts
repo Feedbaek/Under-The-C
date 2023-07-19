@@ -9,7 +9,7 @@ export interface ILogin {
 };
 
 
-export const isLoginState = atom<boolean>({
+export const isLoginState = atom({
   key: 'isLogin',
   default: false,
   effects_UNSTABLE: [persistAtom],
