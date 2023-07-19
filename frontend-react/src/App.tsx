@@ -14,18 +14,18 @@ const App = () => {
   return (
     <>
 	<RecoilRoot>
-    <Header/>
 		<BrowserRouter>
+				<Header/>
 			<Routes>
-			<Route path="/" element={<Main/>}/>
-			<Route path="/board" element={<Board/>}/>
-			<Route path="/UserPage" element={<UserPage/>}/>
-			<Route path='/LoginPage' element={<LoginPage/>}/>
-			<Route path="/RegisterPage" element={<RegisterPage/>}/>
+				<Route path="/" element={<Main/>}/>
+				<Route path="/board" element={<Board/>}/>
+				<Route path="/UserPage" element={<UserPage/>}/>
+				<Route path='/LoginPage' element={<LoginPage/>}/>
+				<Route path="/RegisterPage" element={<RegisterPage/>}/>
 			</Routes>
 		</BrowserRouter>
 	</RecoilRoot>
-      <Footer/>
+	<Footer/>
     </>
   )
 }
