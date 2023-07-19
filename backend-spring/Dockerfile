@@ -1,6 +1,6 @@
-FROM alpine:latest
+FROM openjdk:17-alpine
 
-RUN apk update && apk add openjdk17
+RUN apk update
 
 COPY . /backend-spring
 WORKDIR /backend-spring
