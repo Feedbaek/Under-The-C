@@ -3,7 +3,7 @@ NAME = UnderTheC
 all : $(NAME)
 
 $(NAME) :
-	docker compose up -d
+	docker compose up --build -d
 
 test :
 	docker compose -f ./build-test/docker-compose.yml up -d
