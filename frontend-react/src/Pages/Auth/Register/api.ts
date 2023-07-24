@@ -1,6 +1,6 @@
 import axios from "axios";
 import { Member } from "./Member";
-const BASE_URL = `http://${process.env.REACT_APP_SPRING_HOST}:${process.env.REACT_APP_SPRING_PORT}`;
+const BASE_URL = `https://${process.env.REACT_APP_SPRING_HOST}:${process.env.REACT_APP_SPRING_PORT}`;
 
 export const memberPost = async (data: any) => {
   const URL = `${BASE_URL}/user/add`;

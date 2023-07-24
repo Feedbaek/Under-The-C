@@ -7,9 +7,12 @@ import UnderTheC.DeepSea.repository.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseCookie;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
@@ -38,7 +41,7 @@ public class IndexController {
     @Operation(summary = "로그인", description = "로그인 API", responses = {
             @ApiResponse(responseCode = "200", description = "로그인 성공")
     })
-    public LoginResponse login(HttpServletRequest request, @RequestBody LoginRequest json) {
+    public LoginResponse login(HttpServletRequest request, HttpServletResponse response, @RequestBody LoginRequest json) {
         /* 로그인 상태 확인 */
         if (request.getSession(false) != null) {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "이미 로그인 되어 있습니다.");
@@ -60,7 +63,15 @@ public class IndexController {
         HttpSession session = request.getSession();
         /* 세션에 로그인 회원 정보 보관 */
         session.setAttribute("loginUser", loginUser);
-        /* 세션 id는 쿠키에 JSESSIONID 값으로 저장됨 */
+        /* 세션 id는 쿠키에 JSESSIONID 으로 저장됨 */
+        ResponseCookie cookie = ResponseCookie.from("JSESSIONID", session.getId())
+                .path("/")
+                .sameSite("None")
+                .httpOnly(true)
+                .secure(true)
+                .maxAge(1800)
+                .build();
+        response.addHeader("Set-Cookie", cookie.toString());
 
         return new LoginResponse("success", "로그인 성공", loginUser);
     }

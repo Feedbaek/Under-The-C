@@ -27,7 +27,8 @@ public class DeepSeaApplication {
 			public void addCorsMappings(CorsRegistry registry) {
 				registry.addMapping("/**")
 				.allowedOrigins("http://" + System.getenv("REACT_HOST") + ":" + System.getenv("REACT_PORT"))
-				.allowedMethods("*");
+				.allowedMethods("GET", "HEAD", "POST", "PUT", "DELETE", "OPTIONS", "PATCH")
+				.allowCredentials(true);
 			}
 		};
 	}

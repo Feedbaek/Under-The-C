@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URI = `http://${process.env.REACT_APP_SPRING_HOST}:${process.env.REACT_APP_SPRING_PORT}`;
+const URI = `https://${process.env.REACT_APP_SPRING_HOST}:${process.env.REACT_APP_SPRING_PORT}`;
 
 export const fetchPost = async () => {
 	const res = await axios.get(URI + `/evaluation/find`);
