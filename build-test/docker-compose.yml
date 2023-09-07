@@ -1,0 +1,57 @@
+version: "3"
+
+services:
+  test-mariadb:
+    image: test_maria
+    build: ../db-mariadb
+    container_name: test-mariadb
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "3307:${MARIADB_PORT}"
+    volumes:
+      - ./data:/var/lib/mysql
+    networks:
+      - test-deep-sea
+    tty: true
+
+  test-spring:
+    image: test_spring
+    build: ../backend-spring
+    container_name: test-spring
+    depends_on:
+      - test-mariadb
+    restart: always
+    env_file:
+      - .env
+    ports:
+      - "8091:${SPRING_PORT}"
+    volumes:
+      - ../backend-spring:/backend-spring
+    networks:
+      - test-deep-sea
+    tty: true
+    #command: java -jar build/libs/DeepSea-0.0.1-SNAPSHOT.jar
+
+  #react:
+  #  image: react
+  #  build: ./frontend
+  #  container_name: react
+  #  depends_on:
+  #    - spring
+  #  restart: always
+  #  env_file:
+  #    - .env
+  #  ports:
+  #    - "${REACT_APP_PORT}:${REACT_APP_PORT}"
+  #  volumes:
+  #    - ./frontend:/frontend
+  #  networks:
+  #    - test-deep-sea
+  #  tty: true
+  #  command: bash -c "npm i && npm run start:dev"
+
+networks:
+  test-deep-sea:
+    driver: bridge

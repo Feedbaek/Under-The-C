@@ -1,0 +1,79 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "title": "조승연 잘생겼어요",
+      "professor": "조승연",
+      "lecture": "웹프로그래밍",
+      "rating": 5,
+      "content": "content example........................"
+    },
+    {
+      "id": 2,
+      "title": "해커스 1타",
+      "professor": "양문자",
+      "lecture": "운영체제",
+      "rating": 5,
+      "content": "content example........................"
+    },
+    {
+      "id": 3,
+      "title": "날먹강의",
+      "professor": "채진석",
+      "lecture": "객체지향설계",
+      "rating": 5,
+      "content": "content example........................"
+    },
+    {
+      "id": 4,
+      "title": "이상국은 물러가라",
+      "professor": "이상국",
+      "lecture": "창의입문설계",
+      "rating": 5,
+      "content": "content example........................"
+    },
+    {
+      "title": "개발은 힘들어유",
+      "rating": "5",
+      "lecture": "타입스크립트",
+      "professor": "김김김",
+      "content": "아니 난 힘들지않아",
+      "id": 5
+    },
+    {
+      "title": "아니",
+      "rating": 2,
+      "lecture": "왜",
+      "professor": "갑자기",
+      "content": " 안되냐고ㅇㅇ",
+      "id": 6
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "members": [
+    {
+      "email": "kmh7277@naver.com",
+      "password": "123456",
+      "id": 1
+    },
+    {
+      "id": "gurwns756",
+      "email": "123414@aeqwewqe",
+      "password": "123456"
+    },
+    {
+      "id": "kmh7277",
+      "email": "kmh7277@naver.com",
+      "password": "123456"
+    }
+  ]
+}
